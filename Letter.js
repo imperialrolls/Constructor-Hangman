@@ -9,3 +9,28 @@
 //or a placeholder (like an underscore) if the letter has not been guessed
 // A function that takes a character as an argument and checks it against the underlying character, 
 //updating the stored boolean value to true if it was guessed correctly
+
+
+var Letter = function (letter) {
+  this.letter = letter
+  this.guessed = false
+  if(letter === " ") {
+    this.guessed = true
+  }
+}
+
+Letter.prototype.getDisplay = function (){
+  return this.guessed ? this.letter : "_"
+} 
+
+Letter.prototype.guess = function (userGuess) {
+  if (userGuess.toLowerCase() === this.letter.toLowerCase()) {
+    this.guessed = true;
+    return true
+  }
+  return false
+}
+
+module.exports = Letter
+
+
